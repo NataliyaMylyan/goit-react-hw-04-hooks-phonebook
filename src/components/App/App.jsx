@@ -4,10 +4,11 @@ import ContactForm from "../ContactForm/ContactForm.jsx";
 import Filter from "../Filter/Filter.jsx";
 import ContactList from "../ContactList/ContactList.jsx";
 import s from "./App.module.css";
+
 const App = () => {
-  const localstorageKey = "contacts";
   const [contacts, setContacts] = useState([]);
   const [filter, setFilter] = useState("");
+  const localstorageKey = "contacts";
 
   useEffect(() => {
     const parsedContacts = JSON.parse(localStorage.getItem(localstorageKey));

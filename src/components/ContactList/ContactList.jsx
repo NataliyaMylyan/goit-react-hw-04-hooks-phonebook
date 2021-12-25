@@ -2,10 +2,9 @@ import PropTypes from "prop-types";
 import s from "./ContactList.module.css";
 
 const ContactList = ({ contacts, onClick }) => {
-  const handleDeleteBtn = (event) => {
-    const { name } = event.target;
-    onClick(name);
-  };
+  // const handleDeleteBtn = ({ target: { name } }) => {
+  //   onClick(name);
+  // };
   return (
     <ul className={s.contactList}>
       {contacts.map(({ id, name, number }) => (
@@ -17,7 +16,7 @@ const ContactList = ({ contacts, onClick }) => {
             className={s.button}
             type="button"
             name={id}
-            onClick={handleDeleteBtn}
+            onClick={() => onClick(id)}
           >
             Delete
           </button>

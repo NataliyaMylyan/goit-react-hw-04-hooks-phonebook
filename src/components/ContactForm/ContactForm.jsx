@@ -6,11 +6,11 @@ const ContactForm = ({ onSubmit }) => {
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
 
-  const handleChange = (event) => {
-    const { name, value } = event.currentTarget;
+  const handleChange = ({ currentTarget: { name, value } }) => {
+    name === "name" ? setName(value) : setNumber(value);
 
-    if (name === "name") setName(value);
-    else if (name === "number") setNumber(value);
+    // if (name === "name") setName(value);
+    // else if (name === "number") setNumber(value);
   };
 
   const handleSubmit = (event) => {
@@ -39,7 +39,7 @@ const ContactForm = ({ onSubmit }) => {
           onChange={handleChange}
         />
       </label>
-      <label className={s.label} htmlFor="">
+      <label className={s.label}>
         Number
         <input
           className={s.input}
